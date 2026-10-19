@@ -1,5 +1,5 @@
 import { list, put, head } from '@vercel/blob';
-import { createApiHandler } from '../api-adapter';
+import { createApiHandler } from '../api-adapter.js';
 
 function getErrorMessage(error: unknown): string {
   if (error instanceof Error) return error.message;
