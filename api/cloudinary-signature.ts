@@ -1,5 +1,5 @@
 import { createHash, randomUUID } from 'node:crypto';
-import { createApiHandler } from '../api-adapter';
+import { createApiHandler } from '../api-adapter.js';
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
