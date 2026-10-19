@@ -1,4 +1,5 @@
 import { list, put, head } from '@vercel/blob';
+import { createApiHandler } from './_adapter';
 
 function getErrorMessage(error: unknown): string {
   if (error instanceof Error) return error.message;
@@ -195,4 +196,6 @@ async function handler(request: Request): Promise<Response> {
   });
 }
 
-export default { fetch: handler };
+export const config = { api: { bodyParser: false } };
+
+export default createApiHandler(handler);

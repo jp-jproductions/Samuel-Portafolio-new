@@ -1,4 +1,5 @@
 import { createHash, randomUUID } from 'node:crypto';
+import { createApiHandler } from './_adapter';
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
@@ -72,4 +73,6 @@ async function handler(request: Request): Promise<Response> {
   }
 }
 
-export default { fetch: handler };
+export const config = { api: { bodyParser: false } };
+
+export default createApiHandler(handler);

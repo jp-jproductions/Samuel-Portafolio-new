@@ -1,5 +1,6 @@
 import { put } from '@vercel/blob';
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
+import { createApiHandler } from './_adapter';
 
 async function handler(request: Request): Promise<Response> {
   if (request.method !== 'POST') {
@@ -109,4 +110,6 @@ async function handler(request: Request): Promise<Response> {
   }
 }
 
-export default { fetch: handler };
+export const config = { api: { bodyParser: false } };
+
+export default createApiHandler(handler);
